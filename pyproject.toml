@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "courtroom-viz"
+version = "0.1.0"
+description = "Legal Evidence Visualizer powered by CrewAI and Gemini"
+authors = [
+    {name = "CourtroomViz Team", email = "team@courtroomviz.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "streamlit>=1.28.0",
+    "google-genai>=1.32.0",
+    "Pillow>=10.0.0",
+    "crewai>=0.1.0",
+    "langchain>=0.1.0",
+    "langchain-google-genai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

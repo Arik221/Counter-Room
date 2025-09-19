@@ -1,0 +1,322 @@
+# CourtroomViz Task Configurations
+# Legal Analysis Tasks for Courtroom Visualization
+
+forensic_analysis_task:
+  description: >
+    Conduct a comprehensive forensic analysis of the following case data: {case_data}
+    
+    ANALYSIS REQUIREMENTS:
+    1. Evidence Categorization:
+       - Physical evidence (weapons, clothing, documents, biological samples)
+       - Digital evidence (photos, videos, communications, electronic records)
+       - Testimonial evidence (witness statements, expert opinions, depositions)
+       - Circumstantial evidence (timeline, location, behavior patterns)
+    
+    2. Technical Specifications:
+       - Measurements and dimensions of all physical evidence
+       - Material properties and characteristics
+       - Condition and preservation status
+       - Chain of custody information
+       - Forensic testing results and methodologies
+    
+    3. Visual Presentation Elements:
+       - Key evidence items that require visualization
+       - Spatial relationships and positioning
+       - Timeline of events with specific timestamps
+       - Character descriptions and consistency requirements
+       - Environmental factors affecting the scene
+    
+    4. Legal Context:
+       - Relevance to case arguments and legal theories
+       - Potential objections or challenges
+       - Supporting documentation needs
+       - Expert witness requirements
+    
+    FOCUS AREAS: {focus_areas}
+    EVIDENCE TYPES: {evidence_focus}
+    {custom_instructions}
+  expected_output: >
+    A valid JSON object that matches the ForensicAnalysisModel schema exactly.
+    The output must be a single JSON object with the following structure:
+    {
+      "case_summary": "Brief case summary and context including key facts and circumstances",
+      "evidence_items": [
+        {
+          "type": "Physical/Biological, Digital/Testimonial, Physical/Circumstantial, etc.",
+          "description": "Detailed description of the evidence",
+          "location": "Where evidence was found or located",
+          "measurements": {"key": "value"} or null,
+          "condition": "Current condition and preservation status",
+          "relevance": "Relevance to case and legal arguments",
+          "chain_of_custody": "Chain of custody information"
+        }
+      ],
+      "scene_layout": {
+        "description": "Overall scene description including body positions, blood evidence, and key locations",
+        "dimensions": {"key": "value"},
+        "key_elements": ["list of key visual elements"],
+        "camera_angles": ["list of recommended camera angles"],
+        "lighting_conditions": "Lighting conditions and requirements",
+        "environmental_factors": ["list of environmental factors"]
+      },
+      "timeline": [
+        {
+          "timestamp": "Time or sequence of the event",
+          "description": "What happened at this time",
+          "participants": ["People involved in this event"],
+          "location": "Where this event occurred",
+          "evidence_created": ["Evidence created or modified at this time"]
+        }
+      ],
+      "characters": [
+        {
+          "name": "Character name or identifier",
+          "role": "Victim, Suspect/Person of Interest, Witness, Expert Witness, Child, etc.",
+          "physical_description": "Detailed physical description including age, injuries, condition",
+          "clothing": "Clothing description if relevant",
+          "positioning": "Positioning in the scene",
+          "actions": ["Actions performed by this character"]
+        }
+      ],
+      "visual_requirements": {
+        "crime_scene_reconstruction": "3D model or detailed diagram requirements",
+        "timeline_chart": "Chronological timeline requirements",
+        "autopsy_diagrams": "Anatomical diagrams requirements",
+        "evidence_photos": "High-resolution photograph requirements",
+        "DNA_analysis_visual": "Infographic requirements",
+        "map_locations": "Map showing locations requirements",
+        "character_profiles": "Visual aids for key individuals",
+        "Akita_dog_visual": "Specific visual requirements"
+      },
+      "legal_notes": ["Important legal considerations and potential objections"],
+      "technical_specifications": {
+        "DNA_analysis_methodology": "Technical details",
+        "toxicology_screen": "Technical details",
+        "time_of_death_estimation": "Technical details",
+        "wound_analysis": "Technical details",
+        "footwear_analysis": "Technical details",
+        "glove_analysis": "Technical details",
+        "audio_forensics": "Technical details",
+        "crime_scene_documentation": "Technical details"
+      },
+      "recommendations": ["Recommendations for presentation and further analysis"]
+    }
+    Do not include any text before or after the JSON object.
+  agent: forensic_analyst
+
+scene_reconstruction_task:
+  description: >
+    Based on the forensic analysis, reconstruct the complete scene layout and timeline: {case_data}
+    
+    RECONSTRUCTION REQUIREMENTS:
+    1. Spatial Analysis:
+       - Precise measurements and dimensions of the scene
+       - Positioning of all people, objects, and evidence
+       - Environmental factors and their impact
+       - Access points and movement patterns
+    
+    2. Timeline Reconstruction:
+       - Chronological sequence of events
+       - Duration of each event or action
+       - Causal relationships between events
+       - Critical moments that require emphasis
+    
+    3. Visual Elements:
+       - Key locations that need visualization
+       - Recommended camera angles for each location
+       - Lighting conditions and requirements
+       - Environmental context and atmosphere
+    
+    4. Technical Accuracy:
+       - Engineering principles and physics
+       - Forensic science applications
+       - Legal standards for reconstruction
+       - Expert witness validation requirements
+    
+    FOCUS AREAS: {focus_areas}
+    {custom_instructions}
+  expected_output: >
+    A valid JSON object that matches the SceneReconstructionModel schema exactly.
+    The output must be a single JSON object with the following structure:
+    {
+      "spatial_analysis": {
+        "body_positions": "Detailed analysis of body positions and relationships",
+        "blood_trails": "Analysis of blood evidence and movement patterns",
+        "evidence_locations": "Spatial relationships of all evidence items",
+        "movement_patterns": "Analysis of perpetrator and victim movements"
+      },
+      "timeline": [
+        {
+          "timestamp": "Time or sequence of the event",
+          "description": "What happened at this time",
+          "participants": ["People involved in this event"],
+          "location": "Where this event occurred",
+          "evidence_created": ["Evidence created or modified at this time"]
+        }
+      ],
+      "visual_requirements": [
+        "3D crime scene reconstruction requirements",
+        "Detailed diagram requirements",
+        "Measurement and scale requirements"
+      ],
+      "technical_specifications": {
+        "scale_requirements": "Scale and measurement specifications",
+        "forensic_details": "Forensic accuracy requirements",
+        "reconstruction_methodology": "Technical approach for reconstruction"
+      },
+      "environmental_factors": [
+        "Environmental factors that affected the scene and events"
+      ]
+    }
+    Do not include any text before or after the JSON object.
+  agent: scene_reconstructor
+  context:
+    - forensic_analysis_task
+
+character_consistency_task:
+  description: >
+    Create comprehensive character and object consistency profiles: {case_data}
+    
+    CONSISTENCY REQUIREMENTS:
+    1. Character Profiles:
+       - Physical descriptions (height, weight, build, facial features)
+       - Clothing and personal items
+       - Behavioral patterns and mannerisms
+       - Positioning and movement in scenes
+       - Role in the case and relationships
+    
+    2. Object Descriptions:
+       - Vehicles (make, model, color, condition, modifications)
+       - Weapons or tools (type, condition, markings)
+       - Personal belongings (clothing, jewelry, accessories)
+       - Environmental objects (furniture, structures, signage)
+    
+    3. Visual Consistency:
+       - Maintaining appearance across multiple angles
+       - Consistent lighting and shadows
+       - Proper scale and proportions
+       - Environmental integration
+    
+    4. Legal Accuracy:
+       - Factual accuracy of descriptions
+       - Avoiding speculation or assumptions
+       - Supporting evidence for each description
+       - Potential challenges to descriptions
+    
+    FOCUS AREAS: {focus_areas}
+    {custom_instructions}
+  expected_output: >
+    A valid JSON object that matches the CharacterConsistencyModel schema exactly.
+    The output must be a single JSON object with the following structure:
+    {
+      "character_profiles": [
+        {
+          "name": "Character name or identifier",
+          "role": "Victim, Suspect/Person of Interest, Witness, Expert Witness, Child, etc.",
+          "physical_description": "Detailed physical description including age, injuries, condition",
+          "clothing": "Clothing description if relevant",
+          "positioning": "Positioning in the scene",
+          "actions": ["Actions performed by this character"]
+        }
+      ],
+      "object_specifications": [
+        {
+          "type": "Vehicle, Weapon, Personal Belonging, Environmental Object",
+          "description": "Detailed description",
+          "specifications": "Technical specifications",
+          "consistency_requirements": "Requirements for maintaining consistency"
+        }
+      ],
+      "visual_consistency": {
+        "appearance_consistency": "Requirements for maintaining appearance across multiple angles",
+        "lighting_consistency": "Lighting and shadow consistency requirements",
+        "scale_consistency": "Scale and proportion consistency requirements",
+        "environmental_integration": "Environmental integration requirements"
+      },
+      "legal_accuracy": {
+        "character_accuracy": "Legal accuracy considerations for character descriptions",
+        "object_accuracy": "Legal accuracy considerations for object descriptions",
+        "evidence_accuracy": "Legal accuracy considerations for evidence descriptions"
+      }
+    }
+    Do not include any text before or after the JSON object.
+  agent: character_profiler
+  context:
+    - forensic_analysis_task
+    - scene_reconstruction_task
+
+visual_direction_task:
+  description: >
+    Create a comprehensive image generation plan for crime scene visualization: {case_data}
+    
+    IMAGE GENERATION REQUIREMENTS:
+    1. Determine Total Images Needed:
+       - Analyze the case complexity and evidence
+       - Decide how many images are needed to tell the complete story
+       - Consider narrative flow and jury comprehension
+    
+    2. Create Image Sequence:
+       - Design the order of images for maximum impact
+       - Ensure each image builds on the previous one
+       - Create a logical progression from overview to details
+       - Plan for emotional engagement and legal effectiveness
+    
+    3. Specify Each Image:
+       - Title and purpose for each image
+       - Camera angle and perspective description
+       - Key elements to focus on
+       - Detailed generation prompt for each image
+       - Lighting and visual requirements
+       - Evidence items to highlight
+    
+    4. Maintain Visual Consistency:
+       - Ensure all images work together as a cohesive story
+       - Maintain consistent character appearances
+       - Keep consistent scene elements and lighting
+       - Create smooth transitions between images
+    
+    5. Technical Specifications:
+       - Overall visual style and aesthetic
+       - Quality requirements for each image
+       - Specific technical needs for generation
+    
+    FOCUS AREAS: {focus_areas}
+    {custom_instructions}
+  expected_output: >
+    A valid JSON object that matches the VisualDirectionModel schema exactly.
+    The output must be a single JSON object with the following structure:
+    {
+      "total_images": 8,
+      "narrative_flow": "How the images tell the complete story in sequence",
+      "image_specifications": [
+        {
+          "image_number": 1,
+          "title": "Descriptive title for the image",
+          "angle_description": "Camera angle and perspective description",
+          "focus_elements": ["Key elements to focus on in this image"],
+          "generation_prompt": "Detailed prompt for image generation",
+          "purpose": "Purpose of this image in the overall narrative",
+          "lighting_notes": "Specific lighting requirements",
+          "evidence_highlighted": ["Evidence items highlighted in this image"],
+          "scene_context": "Context and background for this specific image"
+        }
+      ],
+      "visual_consistency": {
+        "style_consistency": "Overall visual style consistency",
+        "character_consistency": "Character appearance consistency",
+        "environment_consistency": "Environmental consistency",
+        "lighting_consistency": "Lighting consistency across images"
+      },
+      "technical_requirements": {
+        "image_quality": "Image quality requirements",
+        "resolution": "Resolution specifications",
+        "format": "Image format requirements",
+        "presentation_requirements": "Presentation and display requirements"
+      }
+    }
+    Do not include any text before or after the JSON object.
+  agent: visual_director
+  context:
+    - forensic_analysis_task
+    - scene_reconstruction_task
+    - character_consistency_task
