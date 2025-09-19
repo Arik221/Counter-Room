@@ -6,7 +6,7 @@
 
 **Transform Crime Scene Evidence into Detailed Forensic Visualizations**
 
-*Powered by Gemini 2.5 Flash Image Preview • Built for the Nano Banana Hackathon 2025*
+*Powered by Gemini 2.5 Flash Image Preview*
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat&logo=python)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red?style=flat&logo=streamlit)](https://streamlit.io)
@@ -40,7 +40,7 @@
 
 ## 🎯 Overview
 
-**CourtroomViz** is a revolutionary legal technology platform that transforms complex crime scene evidence into compelling, courtroom-ready visualizations. Built specifically for the Nano Banana Hackathon 2025, it leverages cutting-edge AI technologies to help legal professionals present evidence more effectively to juries and judges.
+**CourtroomViz** is a revolutionary legal technology platform that transforms complex crime scene evidence into compelling, courtroom-ready visualizations.It leverages cutting-edge AI technologies to help legal professionals present evidence more effectively to juries and judges.
 
 ### The Problem
 - Legal cases often involve complex evidence that's difficult for juries to understand
@@ -465,10 +465,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🏆 Hackathon Information
-
-**Built for Nano Banana Hackathon 2025**
-
 This project leverages the revolutionary capabilities of Gemini 2.5 Flash Image Preview to create a groundbreaking legal technology platform. The combination of multi-agent AI systems, advanced image generation, and legal domain expertise makes CourtroomViz a powerful tool for modern legal practice.
 
 ### **Key Innovation Points**
@@ -480,8 +476,6 @@ This project leverages the revolutionary capabilities of Gemini 2.5 Flash Image 
 ---
 
 <div align="center">
-
-**🍌 Built with ❤️ for the Nano Banana Hackathon 2025**
 
 *Transforming Legal Practice Through AI-Powered Visualization*
 
